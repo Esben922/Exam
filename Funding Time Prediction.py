@@ -34,10 +34,6 @@ st.subheader('Describe your situation')
 # User inputs
 col1, col2 = st.columns(2)
 
-
-#cat_features = ['sector', 'country', 'borrower_genders', 'repayment_interval']
-#num_features = ['funded_amount', 'loan_amount', 'term_in_months', 'lender_count']
-
 with col1:
     sector = st.selectbox('sector', options=ohe.categories_[0])
     country = st.selectbox('country', options=ohe.categories_[1])
@@ -51,7 +47,7 @@ with col2:
     lender_count = st.number_input('lender_count', min_value=0, max_value=100, value=1)
 
 # Prediction button
-if st.button('Predict Terms!'):
+if st.button('Predict Funding Time!'):
     # Prepare categorical features
     cat_features = pd.DataFrame({'sector': [sector],'country': [country],'borrower_genders': [borrower_genders],'repayment_interval': [repayment_interval]})
     cat_encoded = pd.DataFrame(ohe.transform(cat_features).toarray(), columns=ohe.get_feature_names_out())

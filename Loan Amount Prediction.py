@@ -64,12 +64,12 @@ if st.button('Predict Loan!'):
     predicted_price = model_xgb.predict(features)[0]
     
     # Display prediction
-    st.metric(label="Predicted Loan:", value=f'{round(predicted_price)} DKK')
+    st.metric(label="Predicted Loan:", value=f'{round(predicted_price)}')
     
     # Calculate and display price range
     lower_range = max(0, round(predicted_price - 110))
     upper_range = round(predicted_price + 110)
-    st.write(f"Potential Variation: {lower_range} - {upper_range} DKK")
+    st.write(f"Potential Variation: {lower_range} - {upper_range}")
     
     # SHAP explanation
     st.subheader('Price Factors Explained 🤖')
