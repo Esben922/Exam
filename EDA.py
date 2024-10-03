@@ -1,15 +1,7 @@
 # Import required packages
 import pandas as pd
-import numpy as np
 import altair as alt
 import streamlit as st
-import matplotlib.pyplot as plt
-from scipy.stats import zscore
-import streamlit as st
-import altair as alt
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.metrics.pairwise import cosine_similarity
 
 df_new = pd.read_csv('kiva_loans.csv')
 df_new.drop(columns=['use', 'tags'], inplace=True)
@@ -136,7 +128,7 @@ gender_doughnut_chart = alt.Chart(gender_counts).mark_arc(innerRadius=80, outerR
     height=400
 )
 
-# text labels to the doughnut chart 
+#doughnut
 gender_doughnut_text = gender_doughnut_chart.mark_text(radius=150, size=15).encode(
     text=alt.Text('count:Q', format='.0f')
 )
